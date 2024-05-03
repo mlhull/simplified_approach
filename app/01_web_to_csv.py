@@ -21,7 +21,7 @@ def url_get_contents(url):
     f = urllib.request.urlopen(req)
     return f.read()
 
-# Creates key-pairs of web data, assigns id and converts to list to support dataframe merg
+# Creates key-pairs of web data, assigns id and converts to list to support dataframe merge
 def tbl_to_list(data, id, my_list):
     item_dict = {item[0]: item[1:] for item in data}
     item_dict.update(id)
@@ -89,7 +89,7 @@ def main():
     tdf = pd.merge(tdf1, tdf2, on='stock').merge(tdf3, on='stock').merge(tdf4, on='stock')
     tdf = clean_column_names(tdf)
 
-    # Specity float columns
+    # Specify float columns
     float_columns = ['open', 'previous_close', 'beta', 'high', 'low', 'year_high', 'year_low', 'market_capital']
     tdf = convert_to_float(tdf, float_columns)
 
